@@ -1,5 +1,7 @@
 # MCP-Codex: Model Context Protocol Tool Orchestration
 
+DISCLAIMER: This project was discontinued after Cloudflare released a similar service that addressed many of the same problems. I'm sharing this codebase as an educational resource and example of MCP orchestration architecture. While no longer actively developed, the concepts and implementations may still be valuable to those interested in AI tool orchestration.  Please see Cloudflare's new Remote MCP service and their blogpost announcement here:  https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 A service for orchestrating Model Context Protocol (MCP) servers and allowing AI assistants to dynamically discover and utilize tools without requiring restarts, powered by "The Librarian" - an intelligent agent that understands user needs and connects them with the perfect tools.
