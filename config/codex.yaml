@@ -1,0 +1,60 @@
+tools:
+  - name: stockflow
+    description: Comprehensive stock data tool including financials, analyst ratings, and calendar events
+    server: tools/stockflow/stockflow.py
+    methods:
+      - get_stock_data_v2
+      - get_historical_data_v2
+      - get_options_chain_v2
+    schemas:
+      get_stock_data_v2:
+        type: object
+        properties:
+          symbol:
+            type: string
+            description: Stock ticker symbol
+          include_financials:
+            type: boolean
+            description: Include quarterly financials
+          include_analysis:
+            type: boolean
+            description: Include analyst data
+          include_calendar:
+            type: boolean
+            description: Include calendar events
+        required:
+          - symbol
+      get_historical_data_v2:
+        type: object
+        properties:
+          symbol:
+            type: string
+            description: Stock ticker symbol
+          period:
+            type: string
+            description: Time period (1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max)
+          interval:
+            type: string
+            description: Data interval (1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo)
+            default: 1d
+          prepost:
+            type: boolean
+            description: Include pre and post market data
+            default: false
+        required:
+          - symbol
+          - period
+      get_options_chain_v2:
+        type: object
+        properties:
+          symbol:
+            type: string
+            description: Stock ticker symbol
+          expiration_date:
+            type: string
+            description: Options expiration date (YYYY-MM-DD)
+          include_greeks:
+            type: boolean
+            description: Include options greeks
+        required:
+          - symbol
